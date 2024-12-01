@@ -142,3 +142,5 @@ def palindrome_partition(string):
   backtrack(0, [])
   return results
 ```
+
+Well since this algorithm checks every possible substring ($2^n$) and on each case it chacks if it is a palindrom which happns in $\Theta(n)$ time. The total run tiem should be $\Theta(n \times 2^n)$.
