@@ -17,7 +17,7 @@ def allProfits(index, objects, current_p):
   allProfits(index+1, objects, current_p + objects[index]['b'])
 ```
 
-Here is the run time analysis using the master theorm:
+Here is the run time analysis using the master theorem:
 
 $$
 \begin{split}
@@ -42,7 +42,7 @@ $$
 \end{split}
 $$
 
-Well since I can't use the master theorm for analysis of the run time I could just say that because we are doing all possible combinations and each item could be considered in or not. Then there must be $2^n$ way to make a set of objects.
+Well since I can't use the master theorem for analysis of the run time I could just say that because we are doing all possible combinations and each item could be considered in or not. Then there must be $2^n$ way to make a set of objects.
 
 And that means my running time is $\Theta(2^n)$.
 
@@ -62,13 +62,13 @@ def knapsack_bt(index, objects, current_p, current_w, w):
   return result_2
 ```
 
-I dont really think pruning is impacting the worst case scenario what is $w$ is high enough for all of the objects to fit?
+I dint really think pruning is impacting the worst case scenario what is $w$ is high enough for all of the objects to fit?
 
 So I think it should be safe to say the run time analysis is still $\Theta(2^n)$.
 
-## Question 2 - Dividing into Subeset
+## Question 2 - Dividing into Subset
 
-This is alot like DFS.
+This is a lot like DFS.
 
 ```py
 def divide(numbers):
@@ -115,7 +115,7 @@ def divide(numbers):
   return set_1, set_2
 ```
 
-Since in the worst case scenario we are still looking at all possible subsets the run time analisys is $\Theta(n)$.
+Since in the worst case scenario we are still looking at all possible subsets the run time analysis is $\Theta(n)$.
 
 ## Question 3
 
@@ -127,7 +127,7 @@ def calculate_cost(X, i, j):
   cost = sum(abs(x-avrage) for x in X[i:j])
 ```
 
-I know how the brute force calcualtion should look like.
+I know how the brute force calculation should look like.
 
 ```py
 def bruteForce_clustering(X):
@@ -164,13 +164,13 @@ def clustering(X):
   return {'split': best_split, 'cost': min_cost}
 ```
 
-Now I know for sure that that is a recursive algorithm but I dont think its a backtracking algorithm but I have spent a lot of time trying to figure out a way to prune the space but I cant think of any. I mean so what if adding an index increases the cost I have no proof that adding another one won't reduce the cost so I cant prune base of the current state of the search.
+Now I know for sure that that is a recursive algorithm but I don't think its a backtracking algorithm but I have spent a lot of time trying to figure out a way to prune the space but I cant think of any. I mean so what if adding an index increases the cost I have no proof that adding another one won't reduce the cost so I cant prune base of the current state of the search.
 
 Honestly I give up if my answer is not a backtracking algorithm just don't give me the marks for this question I don't care.
 
 And by the way since I calculate the cost for every possible index and the cost calculation happens in $\Theta(n)$ then the total running time is $\Theta(n^2)$.
 
-## Question 4 - Planidrome Partitioning
+## Question 4 - Palindrome Partitioning
 
 ```py
 def is_palindrome(s):
@@ -194,4 +194,4 @@ def palindrome_partition(string):
   return results
 ```
 
-Well since this algorithm checks every possible substring ($2^n$) and on each case it chacks if it is a palindrom which happns in $\Theta(n)$ time. The total run tiem should be $\Theta(n \times 2^n)$.
+Well since this algorithm checks every possible sub string ($2^n$) and on each case it checks if it is a palindrome which happens in $\Theta(n)$ time. The total run time should be $\Theta(n \times 2^n)$.
