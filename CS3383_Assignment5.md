@@ -4,6 +4,8 @@
 
 **Due:** Nov 29th
 
+**Extension:** Monday, Dec 2nd
+
 ## Question 1 - (0-1) Knapsack Problem Backtracking Algorithm
 
 ### Part A - All Possible Profits
@@ -37,8 +39,6 @@ $$
   a=2, \ b=1, \ f_n = \Theta(1)
   \\
   \log_{b}(a) = \log_{1}(2) \rightarrow undefined
-  \\
-
 \end{split}
 $$
 
