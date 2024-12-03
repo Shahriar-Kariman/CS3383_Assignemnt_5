@@ -119,6 +119,57 @@ Since in the worst case scenario we are still looking at all possible subsets th
 
 ## Question 3
 
+I guess the first step should be to have an algorithm to calculate the cost of for a particular $i$ and $j$.
+
+```py
+def calculate_cost(X, i, j):
+  avrage = sum(X[i:j])/(j-i)
+  cost = sum(abs(x-avrage) for x in X[i:j])
+```
+
+I know how the brute force calcualtion should look like.
+
+```py
+def bruteForce_clustering(X):
+  n = len(X)
+  min_cost = float('inf')
+  best_split = None
+  for i in range(1,n):
+    cost_1 = calculate_cost(X, 0, i-1)
+    cost_2 = calculate_cost(X, i, n-1)
+    total_cost = cost_1 + cost_2
+    if total_cost<min_cost:
+      min_cost = total_cost
+      best_split = i
+  return {'split': best_split, 'cost': min_cost}
+```
+
+Now that is not backtracking so I just need to make it recursive I think that would solve my problem.
+
+```py
+def clustering(X):
+  n = len(X)
+  min_cost = float('inf')
+  best_split = None
+  def helper(index):
+    if index==n:
+      return
+    cost_1 = calculate_cost(X, 0, index-1)
+    cost_2 = calculate_cost(X, index, n-1)
+    total_cost = cost_1 + cost_2
+    if total_cost<min_cost:
+      min_cost = total_cost
+      best_split = index
+    helper(index+1)
+  return {'split': best_split, 'cost': min_cost}
+```
+
+Now I know for sure that that is a recursive algorithm but I dont think its a backtracking algorithm but I have spent a lot of time trying to figure out a way to prune the space but I cant think of any. I mean so what if adding an index increases the cost I have no proof that adding another one won't reduce the cost so I cant prune base of the current state of the search.
+
+Honestly I give up if my answer is not a backtracking algorithm just don't give me the marks for this question I don't care.
+
+And by the way since I calculate the cost for every possible index and the cost calculation happens in $\Theta(n)$ then the total running time is $\Theta(n^2)$.
+
 ## Question 4 - Planidrome Partitioning
 
 ```py
